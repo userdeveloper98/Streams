@@ -1,24 +1,27 @@
-# Welcome!
+## Streams
 
-This Java template lets you get started quickly with a simple one-page playground.
+# Effectively final variable.
 
-```java runnable
-// { autofold
-public class Main {
-
-public static void main(String[] args) {
-// }
-
-String message = "Hello World!";
-System.out.println(message);
-
-//{ autofold
-}
-
-}
-//}
 ```
-
-# Advanced usage
-
-If you want a more complex example (external libraries, viewers...), use the [Advanced Java template](https://tech.io/select-repo/385)
+//Incorrect
+for (int i = 0; i < 10; i++) {
+    new Thread(() -> {
+     System.out.println("i = " + i); // Does not compile!
+    }).start();
+}
+```
+```
+//Correct
+for (int i = 0; i < 10; i++) {
+    j = i; //effectively final
+    new Thread(() -> System.out.println("i = " + j)).start();
+}
+```
+```    
+//Incorrect
+for (int i = 0; i < 10; i++) {
+    int j = i;
+    new Thread(() -> System.out.println("i = " + j)).start();
+    j++;
+}
+```
