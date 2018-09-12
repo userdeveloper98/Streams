@@ -13,7 +13,7 @@ for (int i = 0; i < 10; i++) {
 ```java runnable
 //Correct
 for (int i = 0; i < 10; i++) {
-    j = i; //effectively final
+    int j = i; //effectively final
     new Thread(() -> System.out.println("i = " + j)).start();
 }
 ```
