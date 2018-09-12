@@ -11,11 +11,19 @@ for (int i = 0; i < 10; i++) {
 }
 ```
 ```java runnable
-//Correct
-for (int i = 0; i < 10; i++) {
-    int j = i; //effectively final
-    new Thread(() -> System.out.println("i = " + j)).start();
+// { autofold
+class Scratch {
+    public static void main(String[] args) {
+// }
+        for (int i = 0; i < 10; i++) {
+            int j = i; //effectively final
+            new Thread(() -> System.out.println("i = " + j)).start();
+        }
+// { autofold
+    }
 }
+// }
+
 ```
 ```    
 //Incorrect
