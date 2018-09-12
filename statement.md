@@ -10,7 +10,7 @@ for (int i = 0; i < 10; i++) {
     }).start();
 }
 ```
-```
+```java runnable
 //Correct
 for (int i = 0; i < 10; i++) {
     j = i; //effectively final
